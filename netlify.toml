@@ -1,0 +1,6 @@
+[build]
+  publish = "/public"
+
+[[plugins]]
+  package = "@netlify/plugin-emails"
+

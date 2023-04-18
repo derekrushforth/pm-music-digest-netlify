@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recent tracks</title>
+    <link href="styles.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <h1>Recent Tracks</h1>
+    <p style="text-align:center;margin-bottom:4em;">
+      <input type="email" placeholder="Your email" class="js-email-field" value="derekrushforth@gmail.com">
+      <a href="/.netlify/functions/email" class="js-email button">Send email digest</a>
+    </p>
+
+    <div class="js-recent-tracks recent-tracks"></div>
+
+  <script>
+    fetch('/.netlify/functions/getRecentTracks')
+      .then(response => response.json())
+      .then(data => {
+        const dataContainer = document.querySelector('.js-recent-tracks');
+        const recentTracks = data.recenttracks.track;
+        console.log(recentTracks)
+
+        const html = `
+          ${recentTracks.map(track => 
+            `<div class="track">
+              <a href="${track.url}" target="_blank" class="track_link">
+                <img src="${track.image[3]['#text']}" class="track_image">
+                <div class="track_content">
+                  <h2 class="track_artist">${track.artist['#text']}</h2>
+                  <p class="track_name">${track.name}</p>
+                  <p class="track_album">${track.album['#text']}</p>
+                  ${track.hasOwnProperty('@attr') && 
+                    track['@attr'].hasOwnProperty('nowplaying') && 
+                    track['@attr'].nowplaying === 'true' ? '<span class="track_playing">▶️ Now Playing</span>' : ''}
+                </div>
+              </a>
+             </div>`).join('')
+          }
+        `;
+        dataContainer.innerHTML = html;
+      })
+      .catch(error => console.error(error));
+      
+
+
+      const emailButton = document.querySelector('.js-email');
+      const emailField = document.querySelector('.js-email-field');
+
+      emailButton.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        const emailValue = emailField.value;
+        if (emailValue == '') {
+          alert('Please enter an email.')
+          return
+        }
+        console.log(emailValue)
+        
+        const url = emailButton.getAttribute('href')
+        fetch(url, {
+          method:"POST", 
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            email: emailValue
+          })
+        })
+          .then(response => response.json())
+          .then(data => {
+            console.log(data)
+          })
+          .catch(error => console.error(error));
+      })
+  </script>
+</body>
+</html>
+
+
+  </body>
+</html>

@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --c-bg: #251f1f;
+  --c-accent: #ef5623;
+  --c-base: #ef5623;
+}
+
+* {
+  font-family: 'Space Mono', system-ui, -apple-system, BlinkMacSystemFont;
+}
+
+body {
+  background-color: var(--c-bg);
+  color: var(--c-base);
+}
+
+h1 {
+  color: var(--c-accent);
+  text-align: center;
+  margin: 2em 0 1em;
+}
+
+.button,
+.button:visited {
+  display: inline-block;
+  background-color: var(--c-accent);
+  color: var(--c-bg);
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 2px;
+  font-weight: bold;
+}
+
+.recent-tracks {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 35px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.track {
+  /* background-color: rgba(255,255,255,.05); */
+  border-radius: 5px;
+  position: relative;
+  transition: all 180ms ease-in-out;
+}
+.track:hover {
+  transition: all 180ms ease-in-out;
+  transform: translateY(-15px) rotate(-2deg);
+}
+.track_content {
+  margin-top: 5px;
+}
+.track_link {
+  text-decoration: none;
+  color: var(--c-base);
+}
+.track_artist {
+  color: var(--c-accent);
+  /* font-weight: normal; */
+  font-size: 1rem;
+  margin: 0;
+}
+.track_name {
+  font-size: 14px;
+  margin: 0;
+  color: var(--c-accent);
+}
+.track_album {
+  font-size: 12px;
+  margin: 0;
+  font-style: italic;
+}
+.track_image {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 var(--c-accent);
+}
+.track_playing {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: var(--c-accent);
+  color: var(--c-bg);
+  padding: 5px;
+  font-size: 11px;
+  text-transform: uppercase;
+  border-radius: 10px 0 0 0;
+}

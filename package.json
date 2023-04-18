@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "@netlify/emails": "^1.1.0",
+    "node-fetch": "^2.6.9",
+    "postmark": "^3.0.15",
+    "sendmail": "^1.6.1"
+  },
+  "name": "pm-music-digest-netlify",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
