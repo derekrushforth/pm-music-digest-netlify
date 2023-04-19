@@ -47,15 +47,11 @@ h1 span {
 }
 
 .track {
-  /* background-color: rgba(255,255,255,.05); */
   border-radius: 5px;
   position: relative;
-  transition: all 180ms ease-in-out;
+  z-index: 1;
 }
-.track:hover {
-  transition: all 180ms ease-in-out;
-  transform: translateY(-15px) rotate(-2deg);
-}
+
 .track_content {
   margin-top: 5px;
 }
@@ -65,7 +61,6 @@ h1 span {
 }
 .track_artist {
   color: var(--c-accent);
-  /* font-weight: normal; */
   font-size: 1rem;
   margin: 0;
 }
@@ -80,9 +75,54 @@ h1 span {
   font-style: italic;
 }
 .track_image {
+  position: relative;
   width: 100%;
   border-radius: 10px;
   box-shadow: 3px 3px 0 var(--c-accent);
+  transition: all 180ms ease-in-out;
+  z-index: 2;
+}
+.track:hover {
+  z-index: 5;
+}
+.track:hover .track_image {
+  transition: all 180ms ease-in-out;
+  transform: translateY(-5px) rotate(-5deg);
+}
+/* Record under album */
+.track:hover .track_record {
+  left: 110px;
+  z-index: 1;
+}
+.track_record {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle closest-side, black 35%, rgba(0, 0, 0, 0) 35.5%, rgba(0, 0, 0, 0) 96%, black 96.5%), radial-gradient(circle closest-side, rgba(0, 0, 0, 0) 41.1738028364%, rgba(0, 0, 0, 0.3) 41.3738028364%, rgba(0, 0, 0, 0.3) 42.3738028364%, rgba(0, 0, 0, 0) 42.5738028364%, rgba(0, 0, 0, 0) 50.781238539%, rgba(0, 0, 0, 0.3) 50.981238539%, rgba(0, 0, 0, 0.3) 51.981238539%, rgba(0, 0, 0, 0) 52.181238539%, rgba(0, 0, 0, 0) 59.6295127102%, rgba(0, 0, 0, 0.3) 59.8295127102%, rgba(0, 0, 0, 0.3) 60.8295127102%, rgba(0, 0, 0, 0) 61.0295127102%, rgba(0, 0, 0, 0) 68.3945999531%, rgba(0, 0, 0, 0.3) 68.5945999531%, rgba(0, 0, 0, 0.3) 69.5945999531%, rgba(0, 0, 0, 0) 69.7945999531%, rgba(0, 0, 0, 0) 76.4887366808%, rgba(0, 0, 0, 0.3) 76.6887366808%, rgba(0, 0, 0, 0.3) 77.6887366808%, rgba(0, 0, 0, 0) 77.8887366808%, rgba(0, 0, 0, 0) 87.4499057069%, rgba(0, 0, 0, 0.3) 87.6499057069%, rgba(0, 0, 0, 0.3) 88.6499057069%, rgba(0, 0, 0, 0) 88.8499057069%, rgba(0, 0, 0, 0) 95.922795555%, rgba(0, 0, 0, 0.3) 96.122795555%, rgba(0, 0, 0, 0.3) 97.122795555%, rgba(0, 0, 0, 0) 97.322795555%), conic-gradient(black 40deg, #eef 42deg, black 44deg, black 219deg, #eef 222deg, #eef 223deg, black 228deg), repeating-radial-gradient(rgba(0, 0, 0, 0.4388991917) 1.186440678px, rgba(0, 0, 0, 0.0794559838) 2.3728813559px, rgba(0, 0, 0, 0.4858853942) 3.5593220339px, rgba(0, 0, 0, 0.1202177046) 4.7457627119px, rgba(0, 0, 0, 0.3666533313) 5.9322033898px, rgba(0, 0, 0, 0.1421125506) 7.1186440678px, rgba(0, 0, 0, 0.4655656009) 8.3050847458px, rgba(0, 0, 0, 0.0949152305) 9.4915254237px, rgba(0, 0, 0, 0.4126922001) 10.6779661017px, rgba(0, 0, 0, 0.0261458712) 11.8644067797px, rgba(0, 0, 0, 0.352059127) 13.0508474576px, rgba(0, 0, 0, 0.1248225514) 14.2372881356px, rgba(0, 0, 0, 0.4140986669) 15.4237288136px, rgba(0, 0, 0, 0.1299634088) 16.6101694915px, rgba(0, 0, 0, 0.4727187446) 17.7966101695px, rgba(0, 0, 0, 0.1434629744) 18.9830508475px, rgba(0, 0, 0, 0.3809260118) 20.1694915254px, rgba(0, 0, 0, 0.0793641458) 21.3559322034px, rgba(0, 0, 0, 0.4735705606) 22.5423728814px, rgba(0, 0, 0, 0.1126596346) 23.7288135593px, rgba(0, 0, 0, 0.4150588484) 24.9152542373px, rgba(0, 0, 0, 0.0805439803) 26.1016949153px, rgba(0, 0, 0, 0.4293548457) 27.2881355932px, rgba(0, 0, 0, 0.0886295986) 28.4745762712px, rgba(0, 0, 0, 0.392925888) 29.6610169492px, rgba(0, 0, 0, 0.0855364982) 30.8474576271px, rgba(0, 0, 0, 0.4151060334) 32.0338983051px, rgba(0, 0, 0, 0.0901263514) 33.2203389831px, rgba(0, 0, 0, 0.3655422014) 34.406779661px, rgba(0, 0, 0, 0.0320543341) 35.593220339px, rgba(0, 0, 0, 0.3919485255) 36.7796610169px, rgba(0, 0, 0, 0.0988994148) 37.9661016949px, rgba(0, 0, 0, 0.4630743649) 39.1525423729px, rgba(0, 0, 0, 0.0249779774) 40.3389830508px, rgba(0, 0, 0, 0.3662209819) 41.5254237288px, rgba(0, 0, 0, 0.0649173729) 42.7118644068px, rgba(0, 0, 0, 0.3848205035) 43.8983050847px, rgba(0, 0, 0, 0.0096726846) 45.0847457627px, rgba(0, 0, 0, 0.4984063773) 46.2711864407px, rgba(0, 0, 0, 0.0898111322) 47.4576271186px, rgba(0, 0, 0, 0.4292419692) 48.6440677966px, rgba(0, 0, 0, 0.0246356391) 49.8305084746px, rgba(0, 0, 0, 0.4762728129) 51.0169491525px, rgba(0, 0, 0, 0.0562315708) 52.2033898305px, rgba(0, 0, 0, 0.4038072796) 53.3898305085px, rgba(0, 0, 0, 0.042029835) 54.5762711864px, rgba(0, 0, 0, 0.3955160799) 55.7627118644px, rgba(0, 0, 0, 0.1004429228) 56.9491525424px, rgba(0, 0, 0, 0.353756114) 58.1355932203px, rgba(0, 0, 0, 0.0105594502) 59.3220338983px, rgba(0, 0, 0, 0.487898928) 60.5084745763px, rgba(0, 0, 0, 0.0156031986) 61.6949152542px, rgba(0, 0, 0, 0.3650941687) 62.8813559322px, rgba(0, 0, 0, 0.0469772758) 64.0677966102px, rgba(0, 0, 0, 0.3715587122) 65.2542372881px, rgba(0, 0, 0, 0.113159167) 66.4406779661px, rgba(0, 0, 0, 0.3843524658) 67.6271186441px, rgba(0, 0, 0, 0.0029982091) 68.813559322px, rgba(0, 0, 0, 0.4336482878) 70px), conic-gradient(rgba(255, 255, 255, 0) 80deg, rgba(255, 255, 255, 0.04) 90deg, rgba(255, 255, 255, 0) 95deg, rgba(255, 255, 255, 0) 260deg, rgba(255, 255, 255, 0.04) 270deg, rgba(255, 255, 255, 0) 285deg), conic-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.22) 20deg, rgba(255, 255, 255, 0.29) 40deg, rgba(255, 255, 255, 0) 70deg, rgba(255, 255, 255, 0) 180deg, rgba(255, 255, 255, 0.18) 200deg, rgba(255, 255, 255, 0.15) 210deg, rgba(255, 255, 255, 0) 250deg), black;
+  background-blend-mode: normal, normal, color-dodge, normal, normal;
+  border-radius: 100%;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 180ms ease-in-out;
+}
+.track_record::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 30%;
+  height: 30%;
+  margin-left: -15%;
+  margin-top: -15%;
+  border-radius: 100%;
+  color: #dde;
+  background: radial-gradient(circle closest-side, var(--c-bg) 15%, rgba(234, 234, 238, 0) 9%, transparent 80%, var(--c-bg) 80%, var(--c-bg) 90%, transparent 90%), 
+              var(--c-accent);
+  background-size: 100%, 3em 3em;
 }
 .track_playing {
   position: absolute;
