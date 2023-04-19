@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "@netlify/emails": "^1.1.0",
+    "bluebird": "^3.7.2",
+    "mysql2": "^3.2.3",
     "node-fetch": "^2.6.9",
     "postmark": "^3.0.15",
     "sendmail": "^1.6.1"

@@ -57,9 +57,11 @@ emailButton.addEventListener('click', function(event) {
       email: emailValue
     })
   })
-    .then(response => response.json())
-    .then(data => {
-      alert('Email sent!')
+    .then(() => {
+      alert('Thanks for subscribing to the weekly digest!')
     })
-    .catch(error => console.error(error));
+    .catch(error => {
+      console.error(error)
+      alert('There was an error subscribing to the weekly digest.')
+    });
 })
