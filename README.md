@@ -32,25 +32,27 @@ Follow these steps to deploy your site to Netlify and get this up and running on
 
 ### Set up your local dev environment
 
-1. When you deployed your site to Netlify, it should have created a repository on your Github account. From Netlify, navigate your the `Site overview` page and then it should say `Deploys from Github`. Select that link to view the repo.
+1. When you deployed your site to Netlify, it should have created a repository on your Github account. From Netlify, navigate to the `Site overview` page and then it should say `Deploys from Github`. Select that link to view the repo.
 1. Clone the git repository on your local system. Select the big 🟢green `Code` button to see how.
 1. Open the terminal and navigate to your website: `cd ~/your-site`
 1. `npm install`
-1. `cp .env.example .env`
-1. Enter your `LAST_FM_API_TOKEN` and `POSTMARK_FROM_ADDRESS` in the `.env` file.
-1. `netlify link` and select `Use current git remote origin` - Links this folder to your Netlify website so that you can deploy. Once finished it should show you the admin and site URL.
+1. `netlify link` and select `Use current git remote origin` - Links this folder to your Netlify website so that it loads your environment variables locally and you can deploy. Once finished it should show you the admin and site URL.
 1. `netlify dev` - This will start your local dev server and your site will be accessible at [localhost:8888](http://localhost:8888)
  
 You're all set! You can now make edits to the site. Run `netlify deploy --prod` to deploy your site from this folder.
 
-**Note**: By default Netlify uses your environment variables for Postmark and Last.fm from your Netlify config. If you'd prefer to override these locally, rename `.env.example` to `.env` and update your tokens. Be sure not to commit the `.env` file to your repo.
+## Helpful thingys
+- `netlify build` - Build your site locally to make sure that you don’t run into any snags during deployment
+- `netlify deploy` - Deploys a private staging instance of the site so that you can preview your changes. Add the `--prod` flag to deploy to production.
+- Preview the digest email template at [localhost:8888/.netlify/functions/emails/digest](http://localhost:8888/.netlify/functions/emails/digest)
+- By default Netlify uses your environment variables for Postmark and Last.fm from your Netlify config. If you'd prefer to override these locally, rename `.env.example` to `.env` and update your tokens. Be sure not to commit the `.env` file to your repo.
 
 ## 🚨🚨Work in progress🚨🚨
 
 We’re still working on improving some stuff.
 
-- Triggering a digest email from the front-end isn't a real use case, this was purely just to show how to send an email using Netlify’s new email integration. So I am considering turning this into a subscription form that automatically sends out digests every x days to a list. This would require an integration with some sort of serverless database tool to store the contacts.
-- The digest HTML email template under `./email/digest/index.html` is a bit buggy on certain email clients
-- Errors aren’t handled very gracefully in javascript
-- CSS needs to be tidied up
-- The site doesn't work very well on smaller screens
+- [ ] Triggering a digest email from the front-end isn't a real use case, this was purely just to show how to send an email using Netlify’s new email integration. So we are considering turning this into a subscription form that automatically sends out digests every x days to a list. This would require an integration with some sort of serverless database tool to store the contacts.
+- [ ] The digest HTML email template under `./email/digest/index.html` is a bit buggy on certain email clients
+- [ ] Errors aren’t handled very gracefully in javascript
+- [ ] CSS needs to be tidied up
+- [ ]  The site doesn't work very well on smaller screens
