@@ -1,23 +1,11 @@
-# 🚨WIP🚨
+# 🚨WIP🚨 Music Digest with Netlify + Postmark + Last.fm 
 I'm still working on the instructions so don't follow these unless you like pain.
 
-1. (optional) nvm use (node.js 16+)
-2. npm install
-3. npm init
-- manual
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/derekrushforth/pm-music-digest-netlify)
 
-- go to netlify site under your account
-- integrations > emails
-- click [enable emails]
-- select postmark, add API key, leave emails directory
-
-- site settings > environment variables
-- click [add variable] -> single variable
-- all scopes
-- enter key/value "LAST_FM_API_TOKEN" 
-- [ create variable]
-
-- duplicate .env.example and rename to .env
-- add tokens to the file and save
-
-- netlify dev
+## Requirements
+- [Postmark account](https://postmarkapp.com)
+- [Netlify account](https://netlify.com)
+- [Netlify CLI](https://docs.netlify.com/cli/get-started/)
+- [Last.fm account](https://last.fm)
+- [Node.js 16+](https://nodejs.org/en/download)
