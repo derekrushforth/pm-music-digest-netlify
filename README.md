@@ -24,8 +24,8 @@ Follow these steps to deploy your site to Netlify and get this up and running on
 1. Go to `Site settings` from the top menu
 1. Go to `Environment variables` from the menu on the left
 1. Add a single environment variable with these key names. Ensure that `All scopes` and `Same value for all deploy contexts` are selected.
-  - `LAST_FM_API_TOKEN` - Enter your Last.fm API token as the value
-  - `POSTMARK_FROM_ADDRESS` - This is the address the digest email will be sent from. [Enter an address from a verified domain or Sender Signature in Postmark](https://postmarkapp.com/manual#step-2-set-up-the-address-you-plan-to-send-from).
+    1. `LAST_FM_API_TOKEN` - Enter your Last.fm API token as the value
+    1. `POSTMARK_FROM_ADDRESS` - This is the address the digest email will be sent from. [Enter an address from a verified domain or Sender Signature in Postmark](https://postmarkapp.com/manual#step-2-set-up-the-address-you-plan-to-send-from).
 1. Now let's trigger a deploy so that your site will load the new environment variables. Go to `Deploys` from the top menu
 1. Then `Trigger deploy` -> `Deploy site`
 1. Once the deployment is finished, select the `Preview` button. You should see that all of the recent tracks are loaded. Also make sure to send a digest email to yourself to make sure the Postmark integration is working.
