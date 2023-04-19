@@ -216,3 +216,12 @@ input[type="email"] {
     transform:rotate(360deg);
   }
 }
+
+.subscribe {
+  text-align: center;
+  margin-bottom:4em;
+}
+.subscribe_title {
+  font-size: 16px;
+  font-weight: normal;
+}

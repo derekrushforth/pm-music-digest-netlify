@@ -10,12 +10,13 @@
 
   <body>
     
-    <h1><span>Rian’s recent tracks</span>
-      <div class="disco"></div></h1>
-    <p style="text-align:center;margin-bottom:4em;">
+    <h1><span>Rian’s recent tracks</span><div class="disco"></div></h1>
+    
+    <div class="subscribe">
+      <h2 class="subscribe_title">Subscribe to a weekly email digest</h2>
       <input type="email" placeholder="Your email" class="js-email-field">
-      <a href="/.netlify/functions/email" class="js-email button">Send email digest</a>
-    </p>
+      <a href="/.netlify/functions/addContact" class="js-email button">Subscribe</a>
+    </div>
 
     <div class="js-recent-tracks recent-tracks">
       Loading...
