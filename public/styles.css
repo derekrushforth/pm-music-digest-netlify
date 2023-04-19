@@ -134,6 +134,7 @@ h1 span {
   font-size: 11px;
   text-transform: uppercase;
   border-radius: 10px 0 0 0;
+  z-index: 10;
 }
 
 input[type="email"] {
